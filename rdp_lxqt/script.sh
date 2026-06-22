@@ -149,3 +149,11 @@ sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin dock
 
 systemctl enable docker
 systemctl restart docker
+
+usermod -aG docker "$username"
+if [[ $? -ne 0 ]]; then
+  echo "Failed to add $username to docker group."
+  exit 1
+fi
+
+newgrp docker
