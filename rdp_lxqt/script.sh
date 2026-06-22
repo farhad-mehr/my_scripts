@@ -42,7 +42,6 @@ if [[ $? -ne 0 ]]; then
 fi
 
 echo "User '$username' created and added to sudo group."
-chown -R farhad:farhad /home/farhad
 wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor | sudo tee /usr/share/keyrings/packages.microsoft.gpg >/dev/null
 if [[ $? -ne 0 ]]; then
   echo "Failed to download or install Microsoft GPG key."
